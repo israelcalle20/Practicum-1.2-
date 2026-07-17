@@ -1,0 +1,130 @@
+<svg viewBox="0 0 1300 900" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="1300" height="900" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="650" y="35" text-anchor="middle" font-size="22" font-weight="bold" fill="#0B416D">Generador de recursos didácticos — Arquitectura del pipeline</text>
+
+  <!-- 1. Fuentes de entrada -->
+  <rect x="40" y="70" width="230" height="150" rx="8" fill="#E8F0FE" stroke="#0B416D" stroke-width="2"/>
+  <text x="155" y="95" text-anchor="middle" font-size="14" font-weight="bold" fill="#0B416D">1. Fuentes de entrada</text>
+  <text x="60" y="120" font-size="12" fill="#333">• plan_docente.pdf</text>
+  <text x="60" y="140" font-size="12" fill="#333">• guia_didactica.pdf</text>
+  <text x="60" y="160" font-size="12" fill="#333">• materiales/unidad_1.pdf</text>
+  <text x="60" y="180" font-size="12" fill="#333">• materiales/unidad_2.pdf</text>
+  <text x="60" y="200" font-size="11" fill="#666">(PDF / Word)</text>
+
+  <!-- arrow 1->2 -->
+  <line x1="270" y1="145" x2="330" y2="145" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 2. Preprocesamiento -->
+  <rect x="330" y="70" width="230" height="150" rx="8" fill="#FEF3E0" stroke="#B36B00" stroke-width="2"/>
+  <text x="445" y="95" text-anchor="middle" font-size="14" font-weight="bold" fill="#B36B00">2. Preprocesamiento</text>
+  <text x="345" y="118" font-size="12" fill="#333">extractor.py</text>
+  <text x="345" y="140" font-size="12" fill="#333">• pypdf → extrae texto</text>
+  <text x="345" y="160" font-size="12" fill="#333">• python-docx → extrae texto</text>
+  <text x="345" y="180" font-size="12" fill="#333">• segmenta por unidad</text>
+
+  <!-- arrow 2->3 -->
+  <line x1="560" y1="145" x2="620" y2="145" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 3. Base de conocimiento -->
+  <rect x="620" y="70" width="240" height="150" rx="8" fill="#E6F4EA" stroke="#1E7E34" stroke-width="2"/>
+  <text x="740" y="95" text-anchor="middle" font-size="14" font-weight="bold" fill="#1E7E34">3. Base de conocimiento</text>
+  <text x="635" y="118" font-size="12" fill="#333">base_conocimiento.py</text>
+  <text x="635" y="140" font-size="12" fill="#333">• construye dict de unidades</text>
+  <text x="635" y="160" font-size="12" fill="#333">• persiste en MongoDB</text>
+  <text x="635" y="180" font-size="11" fill="#666">colección: unidades</text>
+
+  <!-- Mongo cylinder for unidades -->
+  <ellipse cx="1080" cy="90" rx="70" ry="14" fill="#DCEEDD" stroke="#1E7E34" stroke-width="2"/>
+  <rect x="1010" y="90" width="140" height="55" fill="#DCEEDD" stroke="#1E7E34" stroke-width="2"/>
+  <ellipse cx="1080" cy="145" rx="70" ry="14" fill="#DCEEDD" stroke="#1E7E34" stroke-width="2"/>
+  <text x="1080" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#1E7E34">MongoDB</text>
+  <text x="1080" y="138" text-anchor="middle" font-size="11" fill="#1E7E34">unidades</text>
+  <line x1="860" y1="130" x2="1005" y2="118" stroke="#1E7E34" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrowGreen)"/>
+
+  <!-- arrow down 3->4 -->
+  <line x1="740" y1="220" x2="740" y2="270" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 4. Pipeline de prompts -->
+  <rect x="330" y="270" width="530" height="180" rx="8" fill="#EDE7F6" stroke="#4527A0" stroke-width="2"/>
+  <text x="595" y="295" text-anchor="middle" font-size="14" font-weight="bold" fill="#4527A0">4. Pipeline de prompts (prompts.py + Gemini API)</text>
+  <text x="345" y="320" font-size="12" fill="#333">Por cada unidad, 4 prompts encadenados (secuencial):</text>
+  <rect x="345" y="330" width="115" height="40" rx="6" fill="#fff" stroke="#4527A0"/>
+  <text x="402" y="354" text-anchor="middle" font-size="11" fill="#333">1. Resumen</text>
+  <rect x="470" y="330" width="115" height="40" rx="6" fill="#fff" stroke="#4527A0"/>
+  <text x="527" y="354" text-anchor="middle" font-size="11" fill="#333">2. Glosario</text>
+  <rect x="595" y="330" width="115" height="40" rx="6" fill="#fff" stroke="#4527A0"/>
+  <text x="652" y="349" text-anchor="middle" font-size="11" fill="#333">3. Preguntas</text>
+  <text x="652" y="362" text-anchor="middle" font-size="9" fill="#666">(niveles Bloom)</text>
+  <rect x="720" y="330" width="115" height="40" rx="6" fill="#fff" stroke="#4527A0"/>
+  <text x="777" y="349" text-anchor="middle" font-size="11" fill="#333">4. Actividad</text>
+  <text x="777" y="362" text-anchor="middle" font-size="9" fill="#666">de reflexión</text>
+  <text x="345" y="400" font-size="12" fill="#333">Orquestador: pipeline.py — llama a los 4 prompts en orden</text>
+  <text x="345" y="420" font-size="11" fill="#666">Salida intermedia de cada prompt: JSON</text>
+
+  <!-- Mongo cylinder for recursos -->
+  <ellipse cx="1080" cy="290" rx="70" ry="14" fill="#F0EAFB" stroke="#4527A0" stroke-width="2"/>
+  <rect x="1010" y="290" width="140" height="55" fill="#F0EAFB" stroke="#4527A0" stroke-width="2"/>
+  <ellipse cx="1080" cy="345" rx="70" ry="14" fill="#F0EAFB" stroke="#4527A0" stroke-width="2"/>
+  <text x="1080" y="322" text-anchor="middle" font-size="12" font-weight="bold" fill="#4527A0">MongoDB</text>
+  <text x="1080" y="338" text-anchor="middle" font-size="11" fill="#4527A0">recursos</text>
+  <line x1="860" y1="360" x2="1005" y2="320" stroke="#4527A0" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrowPurple)"/>
+
+  <!-- arrow down 4->5 -->
+  <line x1="595" y1="450" x2="595" y2="500" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 5. Exportacion -->
+  <rect x="330" y="500" width="260" height="130" rx="8" fill="#FCE4EC" stroke="#AD1457" stroke-width="2"/>
+  <text x="460" y="525" text-anchor="middle" font-size="14" font-weight="bold" fill="#AD1457">5. Exportación</text>
+  <text x="345" y="548" font-size="12" fill="#333">exportador.py (python-docx)</text>
+  <text x="345" y="568" font-size="12" fill="#333">• lee recursos desde MongoDB</text>
+  <text x="345" y="588" font-size="12" fill="#333">• ensambla portada + secciones</text>
+  <text x="345" y="608" font-size="12" fill="#333">  por unidad y subsecciones</text>
+
+  <line x1="1080" y1="345" x2="1080" y2="530" stroke="#4527A0" stroke-width="2" stroke-dasharray="4,3"/>
+  <line x1="1080" y1="530" x2="600" y2="530" stroke="#4527A0" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrowPurple)"/>
+
+  <!-- arrow to word doc -->
+  <line x1="590" y1="565" x2="650" y2="565" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="650" y="530" width="150" height="70" rx="8" fill="#fff" stroke="#AD1457" stroke-width="2"/>
+  <text x="725" y="558" text-anchor="middle" font-size="12" font-weight="bold" fill="#AD1457">Documento</text>
+  <text x="725" y="576" text-anchor="middle" font-size="12" font-weight="bold" fill="#AD1457">Word (.docx)</text>
+  <text x="725" y="592" text-anchor="middle" font-size="10" fill="#666">salida final</text>
+
+  <!-- arrow down 4/5 -> 6 evaluador (from recursos) -->
+  <line x1="740" y1="450" x2="740" y2="470" stroke="#333" stroke-width="2"/>
+  <line x1="230" y1="565" x2="150" y2="565" stroke="#333" stroke-width="2"/>
+
+  <!-- 6. Evaluacion -->
+  <rect x="40" y="500" width="260" height="150" rx="8" fill="#FFF8E1" stroke="#F57F17" stroke-width="2"/>
+  <text x="170" y="525" text-anchor="middle" font-size="14" font-weight="bold" fill="#F57F17">6. Evaluación</text>
+  <text x="55" y="548" font-size="12" fill="#333">evaluador.py (LLM-as-Judge)</text>
+  <text x="55" y="568" font-size="12" fill="#333">• Gemini evalúa cada recurso</text>
+  <text x="55" y="588" font-size="12" fill="#333">  contra criterios de calidad</text>
+  <text x="55" y="608" font-size="12" fill="#333">• guarda reporte en MongoDB</text>
+  <text x="55" y="628" font-size="11" fill="#666">colección: evaluaciones</text>
+
+  <line x1="595" y1="460" x2="595" y2="480" stroke="none"/>
+  <path d="M 800 460 L 800 480 L 170 480 L 170 495" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- MongoDB overall label -->
+  <rect x="990" y="740" width="220" height="90" rx="8" fill="#F5F5F5" stroke="#555" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <text x="1100" y="762" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">MongoDB (persistencia)</text>
+  <text x="1000" y="782" font-size="10" fill="#333">• unidades — base de conocimiento</text>
+  <text x="1000" y="798" font-size="10" fill="#333">• recursos — JSON de cada prompt</text>
+  <text x="1000" y="814" font-size="10" fill="#333">• evaluaciones — feedback y scores</text>
+
+  <!-- Arrow marker defs -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#1E7E34"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#4527A0"/>
+    </marker>
+  </defs>
+</svg>
