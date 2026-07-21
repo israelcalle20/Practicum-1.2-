@@ -1,0 +1,428 @@
+<mxfile host="app.diagrams.net" pages="7">
+  <diagram name="C4 - Contexto" id="2KovBelVZv0dV8cyiKqz">
+    <mxGraphModel dx="1229" dy="664" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1150" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#08427B;strokeColor=#073B6F;fontColor=#FFFFFF;fontSize=13;align=center;verticalAlign=middle;arcSize=10;" value="&lt;b&gt;Estudiante&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Persona]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;Sube el Plan Docente y la Gu&amp;#237;a, revisa y descarga los recursos generados&lt;/font&gt;" vertex="1">
+          <mxGeometry height="130" width="220" x="60" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="s1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1168BD;strokeColor=#0B4884;fontColor=#FFFFFF;fontSize=13;align=center;verticalAlign=middle;arcSize=10;" value="&lt;b&gt;Generador de Recursos Did&amp;#225;cticos&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Sistema de software]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;Genera resumen, glosario, preguntas y actividad por unidad, y eval&amp;#250;a su calidad&lt;/font&gt;" vertex="1">
+          <mxGeometry height="140" width="260" x="420" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#6B6B6B;fontColor=#FFFFFF;fontSize=13;align=center;verticalAlign=middle;arcSize=10;" value="&lt;b&gt;Gemini API&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Sistema externo (Google)]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;Genera el contenido de cada recurso y eval&amp;#250;a su calidad v&amp;#237;a LLM&lt;/font&gt;" vertex="1">
+          <mxGeometry height="130" width="240" x="820" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#6B6B6B;fontColor=#FFFFFF;fontSize=13;align=center;verticalAlign=middle;arcSize=10;" value="&lt;b&gt;MongoDB Atlas&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Sistema externo]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;Persiste asignaturas, recursos, evaluaciones y el registro de prompts usados&lt;/font&gt;" vertex="1">
+          <mxGeometry height="130" width="240" x="820" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" edge="1" parent="1" source="p1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=11;" target="s1" value="Usa&lt;br/&gt;[navegador]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" edge="1" parent="1" source="s1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=11;" target="e1" value="Genera y eval&amp;#250;a recursos&lt;br/&gt;[HTTPS / JSON]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" edge="1" parent="1" source="s1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=11;" target="e2" value="Lee y escribe datos&lt;br/&gt;[MongoDB Wire Protocol]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="C4 - Contenedores" id="mesbY1RSuMKOYDa_UU6r">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1350" pageHeight="750" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#08427B;strokeColor=#073B6F;fontColor=#FFFFFF;fontSize=13;align=center;verticalAlign=middle;arcSize=10;" value="&lt;b&gt;Estudiante&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Persona]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;Interact&amp;#250;a con el sistema para generar y descargar recursos&lt;/font&gt;" vertex="1">
+          <mxGeometry height="120" width="200" x="40" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="b1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#666666;dashed=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontColor=#666666;fontSize=13;fontStyle=1;" value="Generador de Recursos Did&amp;#225;cticos" vertex="1">
+          <mxGeometry height="620" width="620" x="300" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c_web" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#2E6295;fontColor=#FFFFFF;fontSize=13;align=center;verticalAlign=middle;arcSize=10;" value="&lt;b&gt;Interfaz web&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Contenedor: Python + Streamlit&lt;br/&gt;pantallas.py]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;Cargar documentos, elegir unidades, generar y descargar el Word&lt;/font&gt;" vertex="1">
+          <mxGeometry height="130" width="260" x="330" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="c_pipe" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#2E6295;fontColor=#FFFFFF;fontSize=13;align=center;verticalAlign=middle;arcSize=10;" value="&lt;b&gt;Pipeline de generaci&amp;#243;n&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Contenedor: Python&lt;br/&gt;construir_base_real, pipeline, prompts, exportador]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;Extrae contenido, genera los 4 recursos por unidad y arma el Word&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="240" x="650" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="c_eval" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#2E6295;fontColor=#FFFFFF;fontSize=13;align=center;verticalAlign=middle;arcSize=10;" value="&lt;b&gt;Evaluador&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Contenedor: Python&lt;br/&gt;evaluador.py]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;LLM-as-Judge: punt&amp;#250;a cada recurso y registra feedback docente&lt;/font&gt;" vertex="1">
+          <mxGeometry height="130" width="240" x="690" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="c_db" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#2E6295;fontColor=#FFFFFF;fontSize=13;" value="&lt;b&gt;Base de datos&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Contenedor: MongoDB]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;asignaturas &amp;#183; recursos &amp;#183; evaluaciones &amp;#183; prompts_usados &amp;#183; feedback_docente&lt;/font&gt;" vertex="1">
+          <mxGeometry height="130" width="260" x="330" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="e_gemini" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#6B6B6B;fontColor=#FFFFFF;fontSize=13;align=center;verticalAlign=middle;arcSize=10;" value="&lt;b&gt;Gemini API&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Sistema externo (Google)]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;Genera contenido JSON y eval&amp;#250;a recursos v&amp;#237;a LLM (google-genai SDK)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="140" width="240" x="1020" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="r1" edge="1" parent="1" source="p2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=11;" target="c_web" value="Usa&lt;br/&gt;[navegador]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r2" edge="1" parent="1" source="c_web" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=11;" target="c_pipe" value="Invoca">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r3" edge="1" parent="1" source="c_web" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=11;" target="c_eval" value="Invoca">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r4" edge="1" parent="1" source="c_web" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=11;dashed=1;" target="c_db" value="Lee estado&lt;br/&gt;[pymongo]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r5" edge="1" parent="1" source="c_pipe" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=11;" target="c_db" value="Lee/escribe&lt;br/&gt;[pymongo]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r6" edge="1" parent="1" source="c_eval" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=11;" target="c_db" value="Lee/escribe&lt;br/&gt;[pymongo]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r7" edge="1" parent="1" source="c_pipe" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=11;" target="e_gemini" value="Genera contenido&lt;br/&gt;[google-genai]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r8" edge="1" parent="1" source="c_eval" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=11;" target="e_gemini" value="Eval&amp;#250;a recursos&lt;br/&gt;[google-genai]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="C4 - 1. Contexto" id="Woe5RbREvn4HR-mnxYst">
+    <mxGraphModel dx="2150" dy="1163" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1150" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-26" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#726C81;strokeColor=#524D5E;fontColor=#FFFFFF;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;Estudiante / Docente&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;[Persona]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9&#39;&gt;Usuario principal: sube documentos y descarga el Word final&lt;/font&gt;" vertex="1">
+          <mxGeometry height="130" width="190" x="269.30769230769215" y="480.38461538461536" as="geometry" />
+        </mxCell>
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-27" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#999999;dashed=1;verticalAlign=bottom;align=center;spacingBottom=8;fontColor=#666666;fontSize=12;fontStyle=1;" value="Generador de Recursos Didacticos con IA" vertex="1">
+          <mxGeometry height="900" width="420" x="529.3076923076922" y="260.38461538461536" as="geometry" />
+        </mxCell>
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-28" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2F9E44;strokeColor=#1F6E30;fontColor=#FFFFFF;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;Entrada: Documentos fuente&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;[Interfaz web · pantallas.py – Paso 01]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9&#39;&gt;Plan Docente (.docx) + Guia de Estudio (opcional)&lt;br/&gt;Subidos desde el navegador (Streamlit)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="110" width="340" x="579.9976923076922" y="260.38461538461536" as="geometry" />
+        </mxCell>
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-29" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1B4F91;strokeColor=#123763;fontColor=#FFFFFF;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;1. Preprocesamiento&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;[extractor.py + construir_base_real.py]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9&#39;&gt;pypdf, python-docx | Detecta 2 plantillas de la UTPL&lt;br/&gt;(parrafos SEMANA N o tabla por semana)&lt;br/&gt;Guarda la asignatura en MongoDB&lt;/font&gt;" vertex="1">
+          <mxGeometry height="130" width="340" x="589.9976923076922" y="480.38461538461536" as="geometry" />
+        </mxCell>
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-30" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1B4F91;strokeColor=#123763;fontColor=#FFFFFF;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;2. Generacion de recursos (Gemini)&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;[prompts.py + pipeline.py – Paso 02]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9&#39;&gt;4 recursos por unidad: resumen, glosario,&lt;br/&gt;preguntas, actividad (JSON forzado por schema)&lt;br/&gt;Reintentos ante 429/503; CuotaAgotadaError si se agota&lt;br/&gt;Omite unidades ya generadas al reanudar&lt;/font&gt;" vertex="1">
+          <mxGeometry height="140" width="340" x="779.9976923076922" y="640.3846153846154" as="geometry" />
+        </mxCell>
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-31" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1B4F91;strokeColor=#123763;fontColor=#FFFFFF;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;3. Generacion de documento&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;[exportador.py]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9&#39;&gt;python-docx: portada + secciones por unidad&lt;br/&gt;Lee MongoDB, no vuelve a llamar a Gemini&lt;/font&gt;" vertex="1">
+          <mxGeometry height="110" width="340" x="579.9976923076922" y="805.0046153846154" as="geometry" />
+        </mxCell>
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-32" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1B4F91;strokeColor=#123763;fontColor=#FFFFFF;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;4. Evaluacion de calidad&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;[evaluador.py]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9&#39;&gt;Gemini como LLM-as-Judge: puntua 1-5 por&lt;br/&gt;criterio especifico de cada tipo de recurso&lt;br/&gt;Registra feedback del docente titular&lt;/font&gt;" vertex="1">
+          <mxGeometry height="130" width="340" x="569.3076923076922" y="940.3846153846154" as="geometry" />
+        </mxCell>
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-33" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5BC0EB;strokeColor=#2E86AB;fontColor=#0B2942;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;Salida: Documento Word&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;[Interfaz web · pantallas.py – Paso 03]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9&#39;&gt;Estado por asignatura (completo / parcial / vacio)&lt;br/&gt;Descarga directa desde el navegador&lt;/font&gt;" vertex="1">
+          <mxGeometry height="110" width="340" x="569.3076923076922" y="1105.3846153846152" as="geometry" />
+        </mxCell>
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-34" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#726C81;strokeColor=#524D5E;fontColor=#FFFFFF;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;Docente titular&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;[Persona]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9&#39;&gt;Revisa el Word final y da&lt;br/&gt;feedback cualitativo&lt;/font&gt;" vertex="1">
+          <mxGeometry height="120" width="220" x="1059.3076923076922" y="310.38461538461536" as="geometry" />
+        </mxCell>
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-35" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#726C81;strokeColor=#524D5E;fontColor=#FFFFFF;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;Google Gemini API&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;[Sistema externo]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9&#39;&gt;Genera contenido JSON&lt;br/&gt;(paso 2) y evalua calidad&lt;br/&gt;(paso 4) via google-genai&lt;/font&gt;" vertex="1">
+          <mxGeometry height="140" width="220" x="1799.9976923076922" y="665.0046153846154" as="geometry" />
+        </mxCell>
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-36" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#726C81;strokeColor=#524D5E;fontColor=#FFFFFF;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;MongoDB Atlas&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;[Sistema externo]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9&#39;&gt;asignaturas, recursos,&lt;br/&gt;evaluaciones, prompts_usados,&lt;br/&gt;feedback_docente&lt;/font&gt;" vertex="1">
+          <mxGeometry height="170" width="220" x="1199.9976923076922" y="910.0046153846154" as="geometry" />
+        </mxCell>
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-37" edge="1" parent="1" source="ucZSR9X3_kbycaUBrxbG-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=9.5;" target="ucZSR9X3_kbycaUBrxbG-28" value="sube documentos">
+          <mxGeometry relative="1" x="-0.6964" as="geometry">
+            <mxPoint x="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-38" edge="1" parent="1" source="ucZSR9X3_kbycaUBrxbG-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=9.5;" target="ucZSR9X3_kbycaUBrxbG-29" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-39" edge="1" parent="1" source="ucZSR9X3_kbycaUBrxbG-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=9.5;" target="ucZSR9X3_kbycaUBrxbG-30" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-40" edge="1" parent="1" source="ucZSR9X3_kbycaUBrxbG-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=9.5;" target="ucZSR9X3_kbycaUBrxbG-31" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-41" edge="1" parent="1" source="ucZSR9X3_kbycaUBrxbG-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=9.5;" target="ucZSR9X3_kbycaUBrxbG-32" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-42" edge="1" parent="1" source="ucZSR9X3_kbycaUBrxbG-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=9.5;" target="ucZSR9X3_kbycaUBrxbG-33" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-43" edge="1" parent="1" source="ucZSR9X3_kbycaUBrxbG-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=9.5;dashed=1;" target="ucZSR9X3_kbycaUBrxbG-26" value="descarga el .docx">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-44" edge="1" parent="1" source="ucZSR9X3_kbycaUBrxbG-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=9.5;dashed=1;" target="ucZSR9X3_kbycaUBrxbG-36" value="guarda asignaturas">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-45" edge="1" parent="1" source="ucZSR9X3_kbycaUBrxbG-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=9.5;dashed=1;" target="ucZSR9X3_kbycaUBrxbG-35" value="genera contenido">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-46" edge="1" parent="1" source="ucZSR9X3_kbycaUBrxbG-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=9.5;dashed=1;" target="ucZSR9X3_kbycaUBrxbG-36" value="guarda recursos,&lt;br/&gt;prompts_usados">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-47" edge="1" parent="1" source="ucZSR9X3_kbycaUBrxbG-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=9.5;dashed=1;" target="ucZSR9X3_kbycaUBrxbG-36" value="lee recursos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-48" edge="1" parent="1" source="ucZSR9X3_kbycaUBrxbG-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=9.5;dashed=1;" target="ucZSR9X3_kbycaUBrxbG-35" value="evalua calidad">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-49" edge="1" parent="1" source="ucZSR9X3_kbycaUBrxbG-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=9.5;dashed=1;" target="ucZSR9X3_kbycaUBrxbG-36" value="guarda evaluaciones,&lt;br/&gt;feedback_docente">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ucZSR9X3_kbycaUBrxbG-50" edge="1" parent="1" source="ucZSR9X3_kbycaUBrxbG-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=9.5;dashed=1;" target="ucZSR9X3_kbycaUBrxbG-32" value="da feedback&lt;br/&gt;cualitativo">
+          <mxGeometry relative="1" x="-0.1693" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="C4 - 2. Contenedores" id="8YZjHOY3qIN8RoxTKbqK">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1600" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#08427B;strokeColor=#073B6F;fontColor=#FFFFFF;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;Estudiante&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Persona]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;Interactua con el sistema para generar y descargar recursos&lt;/font&gt;" vertex="1">
+          <mxGeometry height="120" width="200" x="40" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="b1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#666666;dashed=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontColor=#666666;fontSize=13;fontStyle=1;" value="Generador de Recursos Didacticos" vertex="1">
+          <mxGeometry height="730" width="900" x="300" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="c_web" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#2E6295;fontColor=#FFFFFF;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;Interfaz web&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Contenedor: Python + Streamlit&lt;br/&gt;pantallas.py]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;3 pasos: cargar documentos, generar recursos (con progreso), descargar segun estado&lt;/font&gt;" vertex="1">
+          <mxGeometry height="140" width="260" x="340" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c_extr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#2E6295;fontColor=#FFFFFF;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;Extractor de documentos&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Contenedor: Python&lt;br/&gt;extractor.py]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;Extrae texto (PDF/Word) y metadatos del Plan Docente por patrones de palabra clave&lt;/font&gt;" vertex="1">
+          <mxGeometry height="130" width="260" x="350" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="c_build" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#2E6295;fontColor=#FFFFFF;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;Constructor de base de conocimiento&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Contenedor: Python&lt;br/&gt;construir_base_real.py]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;2 estrategias de lectura (parrafos o tabla por semana); arma y guarda la asignatura&lt;/font&gt;" vertex="1">
+          <mxGeometry height="130" width="260" x="330" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="c_pipe" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#2E6295;fontColor=#FFFFFF;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;Orquestador del pipeline&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Contenedor: Python&lt;br/&gt;pipeline.py + prompts.py]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;Genera resumen, glosario, preguntas y actividad por unidad, con reintentos ante cuota&lt;/font&gt;" vertex="1">
+          <mxGeometry height="140" width="260" x="780" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c_eval" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#2E6295;fontColor=#FFFFFF;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;Evaluador de calidad&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Contenedor: Python&lt;br/&gt;evaluador.py]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;LLM-as-Judge: puntua 1-5 cada recurso y registra feedback del docente titular&lt;/font&gt;" vertex="1">
+          <mxGeometry height="130" width="260" x="600" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="c_db" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#2E6295;fontColor=#FFFFFF;fontSize=12;" value="&lt;b&gt;Base de datos&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Contenedor: MongoDB Atlas&lt;br/&gt;db.py (conexion)]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;Colecciones: asignaturas, recursos,&lt;br/&gt;evaluaciones, prompts_usados,&lt;br/&gt;feedback_docente&lt;/font&gt;" vertex="1">
+          <mxGeometry height="170" width="220" x="960" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="e_gemini" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#6B6B6B;fontColor=#FFFFFF;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;Gemini API&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Sistema externo (Google)]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;Genera contenido JSON y evalua recursos via el SDK google-genai&lt;/font&gt;" vertex="1">
+          <mxGeometry height="140" width="240" x="1280" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="r1" edge="1" parent="1" source="p2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="c_web" value="Usa&lt;br/&gt;[navegador]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r2" edge="1" parent="1" source="c_web" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="c_build" value="Invoca&lt;br/&gt;construir_y_guardar()">
+          <mxGeometry relative="1" x="-0.0189" y="10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="330.04" y="140" />
+              <mxPoint x="330.04" y="400.07" />
+              <mxPoint x="460.04" y="400.07" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r3" edge="1" parent="1" source="c_web" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="c_pipe" value="Invoca&lt;br/&gt;ejecutar_pipeline()">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r4" edge="1" parent="1" source="c_web" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="c_eval" value="Invoca&lt;br/&gt;evaluar_unidad()">
+          <mxGeometry relative="1" x="0.3604" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="470" y="420.09" />
+              <mxPoint x="710" y="420.09" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r5" edge="1" parent="1" source="c_build" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="c_extr" value="Usa&lt;br/&gt;extraer_texto/metadatos()">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="475" />
+              <mxPoint x="480" y="475" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r6" edge="1" parent="1" source="c_pipe" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="c_export" value="Invoca&lt;br/&gt;exportar_word()">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r7" edge="1" parent="1" source="c_web" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;dashed=1;" target="c_db" value="Lee estado&lt;br/&gt;[pymongo]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r8" edge="1" parent="1" source="c_build" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="c_db" value="Escribe&lt;br/&gt;asignaturas">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r9" edge="1" parent="1" source="c_export" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="c_db" value="Lee/escribe&lt;br/&gt;recursos, prompts_usados">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r10" edge="1" parent="1" source="c_export" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="c_db" value="Lee&lt;br/&gt;recursos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r11" edge="1" parent="1" source="c_eval" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="c_db" value="Lee/escribe&lt;br/&gt;evaluaciones, feedback_docente">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r12" edge="1" parent="1" source="c_pipe" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="e_gemini" value="Genera contenido&lt;br/&gt;[google-genai]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r13" edge="1" parent="1" source="c_eval" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="e_gemini" value="Evalua recursos&lt;br/&gt;[google-genai]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="M9NaBS3xjDCSCBrI1qkk-1" edge="1" parent="1" source="c_pipe" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="c_export" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="910" y="170" as="sourcePoint" />
+            <mxPoint x="1070" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c_export" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#2E6295;fontColor=#FFFFFF;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;Exportador de documentos&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Contenedor: Python&lt;br/&gt;exportador.py]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;Ensambla el Word final leyendo los recursos ya generados (no llama a Gemini)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="130" width="260" x="730" y="240" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="C4 - 3. Componentes (Pipeline)" id="qh3xHYxthfJXyRz_70OC">
+    <mxGraphModel dx="1229" dy="664" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="720" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="b2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#666666;dashed=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontColor=#666666;fontSize=13;fontStyle=1;" value="Contenedores: Extractor + Constructor + Orquestador + Exportador" vertex="1">
+          <mxGeometry height="620" width="1180" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="k_extr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5D82A8;fontColor=#083863;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;extractor.py&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Componente: Python]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;extraer_texto_pdf()&lt;br/&gt;extraer_texto_docx()&lt;br/&gt;extraer_metadatos_plan_docente()&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="250" x="80" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="k_build" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5D82A8;fontColor=#083863;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;construir_base_real.py&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Componente: Python]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;_parsear por parrafos (estrategia A)&lt;br/&gt;_parsear por tabla (estrategia B)&lt;br/&gt;construir_y_guardar()&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="260" x="380" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="k_baseconoc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5D82A8;fontColor=#083863;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;base_conocimiento.py&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Componente: Python]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;construir_base(), guardar_base(),&lt;br/&gt;cargar_base() - reutilizadas&lt;/font&gt;" vertex="1">
+          <mxGeometry height="110" width="260" x="140" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="k_pipe" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5D82A8;fontColor=#083863;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;pipeline.py&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Componente: Python]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;ejecutar_pipeline()&lt;br/&gt;procesar_unidad()&lt;br/&gt;ya_existe_recurso() - evita duplicar&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="260" x="700" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="k_prompts" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5D82A8;fontColor=#083863;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;prompts.py&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Componente: Python]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;generar_resumen/glosario/&lt;br/&gt;preguntas/actividad()&lt;br/&gt;_generar_json(): reintentos +&lt;br/&gt;CuotaAgotadaError&lt;/font&gt;" vertex="1">
+          <mxGeometry height="170" width="260" x="690" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="k_export" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5D82A8;fontColor=#083863;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;exportador.py&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Componente: Python]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;exportar_word():&lt;br/&gt;portada + secciones&lt;br/&gt;por unidad&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="200" x="1020" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="k_db" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5D82A8;fontColor=#083863;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;db.py&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Componente: Python]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;get_db(): conexion&lt;br/&gt;pymongo reutilizada&lt;/font&gt;" vertex="1">
+          <mxGeometry height="100" width="260" x="340" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_mongo" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#6B6B6B;fontColor=#FFFFFF;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;MongoDB Atlas&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Sistema externo]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;asignaturas, recursos, prompts_usados&lt;/font&gt;" vertex="1">
+          <mxGeometry height="110" width="260" x="820" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_gemini" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#6B6B6B;fontColor=#FFFFFF;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;Gemini API&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Sistema externo (Google)]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;google-genai SDK&lt;/font&gt;" vertex="1">
+          <mxGeometry height="130" width="200" x="1020" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" edge="1" parent="1" source="k_extr" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="k_build" value="provee texto&lt;br/&gt;y metadatos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" edge="1" parent="1" source="k_build" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="k_baseconoc" value="reutiliza&lt;br/&gt;construir_base/guardar_base">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" edge="1" parent="1" source="k_baseconoc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="k_db" value="guarda/lee">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f4" edge="1" parent="1" source="k_pipe" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="k_build" value="carga_base()&lt;br/&gt;al iniciar">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f5" edge="1" parent="1" source="k_pipe" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="k_prompts" value="invoca los 4&lt;br/&gt;generadores">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f6" edge="1" parent="1" source="k_prompts" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="k_db" value="registra&lt;br/&gt;prompts_usados">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f7" edge="1" parent="1" source="k_pipe" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="k_db" value="guarda/consulta&lt;br/&gt;recursos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f8" edge="1" parent="1" source="k_pipe" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="k_export" value="arma el&lt;br/&gt;Word final">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f9" edge="1" parent="1" source="k_export" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="k_db" value="lee&lt;br/&gt;recursos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f10" edge="1" parent="1" source="k_prompts" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="ext_gemini" value="genera JSON">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f11" edge="1" parent="1" source="k_db" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="ext_mongo" value="pymongo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="C4 - 4. Componentes (Evaluador)" id="Vd9iANe2lnrsqcpbreuR">
+    <mxGraphModel dx="1147" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="480" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="b3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#666666;dashed=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontColor=#666666;fontSize=13;fontStyle=1;" value="Contenedor: Evaluador de calidad" vertex="1">
+          <mxGeometry height="420" width="900" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="v_criterios" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5D82A8;fontColor=#083863;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;CRITERIOS&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Componente: dict Python]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;Criterios de calidad por tipo de recurso&lt;br/&gt;(resumen, glosario, preguntas, actividad)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="130" width="240" x="50" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="v_evalrec" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5D82A8;fontColor=#083863;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;evaluar_recurso()&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Componente: Python]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;Pide a Gemini puntuar 1-5 un recurso&lt;br/&gt;contra sus criterios, con reintentos&lt;/font&gt;" vertex="1">
+          <mxGeometry height="130" width="260" x="340" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="v_evalunid" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5D82A8;fontColor=#083863;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;evaluar_unidad()&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Componente: Python]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;Evalua los 4 recursos de una unidad&lt;br/&gt;y guarda el reporte completo&lt;/font&gt;" vertex="1">
+          <mxGeometry height="130" width="240" x="660" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="v_feedback" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5D82A8;fontColor=#083863;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;registrar_feedback_docente() registrar_mejora_aplicada()&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Componente: Python]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;Deja constancia de observaciones&lt;br/&gt;del docente titular y mejoras aplicadas&lt;/font&gt;" vertex="1">
+          <mxGeometry height="120" width="260" x="250" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="v_db" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5D82A8;fontColor=#083863;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;db.py&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Componente: Python]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;Conexion reutilizada&lt;br/&gt;a MongoDB&lt;/font&gt;" vertex="1">
+          <mxGeometry height="120" width="240" x="670" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="v_gemini" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#6B6B6B;fontColor=#FFFFFF;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;Gemini API&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Sistema externo (Google)]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;google-genai SDK&lt;/font&gt;" vertex="1">
+          <mxGeometry height="130" width="220" x="530" y="-190" as="geometry" />
+        </mxCell>
+        <mxCell id="g1" edge="1" parent="1" source="v_criterios" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="v_evalrec" value="usa">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g2" edge="1" parent="1" source="v_evalunid" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="v_evalrec" value="llama x4&lt;br/&gt;(por tipo)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g3" edge="1" parent="1" source="v_evalrec" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="v_gemini" value="puntua">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g4" edge="1" parent="1" source="v_evalunid" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="v_db" value="guarda&lt;br/&gt;evaluaciones">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g5" edge="1" parent="1" source="v_feedback" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="v_db" value="guarda&lt;br/&gt;feedback_docente">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="C4 - 5. Componentes (Interfaz web)" id="BCA0sXRq8EFIt_9A3NEc">
+    <mxGraphModel dx="1147" dy="620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1180" pageHeight="480" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="b4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#666666;dashed=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontColor=#666666;fontSize=13;fontStyle=1;" value="Contenedor: Interfaz web (pantallas.py)" vertex="1">
+          <mxGeometry height="420" width="1080" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="w1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5D82A8;fontColor=#083863;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;Paso 01: Cargar documentos&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Componente: Streamlit]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;file_uploader (Plan Docente + Guia opcional)&lt;br/&gt;llama construir_y_guardar()&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="300" x="50" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="w2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5D82A8;fontColor=#083863;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;Paso 02: Generar recursos&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Componente: Streamlit]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;Selecciona unidades e instrucciones extra&lt;br/&gt;llama ejecutar_pipeline() con progreso&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="300" x="390" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="w3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5D82A8;fontColor=#083863;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;Paso 03: Descargar&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Componente: Streamlit]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;Estado por asignatura (completo/parcial/vacio)&lt;br/&gt;llama exportar_word() bajo demanda&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="300" x="770" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="w_pipe" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#85BBF0;strokeColor=#5D82A8;fontColor=#083863;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;pipeline.py + construir_base_real.py + exportador.py&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Contenedor externo (ver pag. 3)]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;Modulos reales que ejecutan el trabajo&lt;/font&gt;" vertex="1">
+          <mxGeometry height="110" width="300" x="420" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="w_db" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#6B6B6B;fontColor=#FFFFFF;fontSize=12;align=center;verticalAlign=middle;arcSize=8;" value="&lt;b&gt;MongoDB Atlas&lt;/b&gt;&lt;br/&gt;&lt;font point-size=&#39;10&#39;&gt;[Sistema externo]&lt;/font&gt;&lt;br/&gt;&lt;br/&gt;&lt;font point-size=&#39;9.5&#39;&gt;Consulta directa de estado&lt;br/&gt;(colecciones asignaturas, recursos)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="110" width="300" x="60" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="h1" edge="1" parent="1" source="w1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="w_pipe" value="invoca">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="h2" edge="1" parent="1" source="w2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="w_pipe" value="invoca">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="h3" edge="1" parent="1" source="w3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;" target="w_pipe" value="invoca">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="h4" edge="1" parent="1" source="w1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;dashed=1;" target="w_db" value="lee lista&lt;br/&gt;de asignaturas">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="h5" edge="1" parent="1" source="w3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#666666;fontColor=#666666;fontSize=10;dashed=1;" target="w_db" value="lee estado&lt;br/&gt;de recursos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
