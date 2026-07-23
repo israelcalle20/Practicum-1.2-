@@ -1,0 +1,6 @@
+google-genai
+python-docx
+pypdf
+python-dotenv
+pymongo
+streamlit
